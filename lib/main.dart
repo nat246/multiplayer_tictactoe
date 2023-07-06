@@ -8,6 +8,10 @@ void main() {
   runApp(const MyApp());
 }
 
+// Future Builder: take a req -> send it
+// StremBuilder: can take a req -> send it -> listens to it
+// snapshot -> Stream -> Socket io
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
