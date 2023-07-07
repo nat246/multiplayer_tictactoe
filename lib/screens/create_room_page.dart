@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:multiplayer_tictactoe/resources/socket_methods.dart';
 import 'package:multiplayer_tictactoe/responsive/responsive.dart';
 import 'package:multiplayer_tictactoe/widgets/custom_button.dart';
 import 'package:multiplayer_tictactoe/widgets/custom_text.dart';
@@ -15,6 +16,7 @@ class CreateRoomPage extends StatefulWidget {
 
 class _CreateRoomPageState extends State<CreateRoomPage> {
   final TextEditingController _nameController = TextEditingController();
+  final SocketMethods _socketMethods = SocketMethods();
 
   // prevents memory leak
   @override
@@ -48,7 +50,7 @@ class _CreateRoomPageState extends State<CreateRoomPage> {
               SizedBox(height: size.height * 0.08),
               CustomTextField(controller: _nameController, hintText: 'Enter your name'),
               SizedBox(height: size.height * 0.045,),
-              CustomButton(onTap: () {}, text: 'Create')
+              CustomButton(onTap: () => _socketMethods.createRoom(_nameController.text), text: 'Create')
             ],
           ),
         ),
